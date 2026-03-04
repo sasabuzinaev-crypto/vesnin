@@ -1,0 +1,2 @@
+  928  git commit -m "add history commasnd"
+  929  history | greep git | tail -n 2 > logcommit.txt
