@@ -1,7 +1,12 @@
 def calculate_tax(income):
-    if income<2400000:
-        return income *0.13
-    elif income <5_000_000:
-        return(2_400_00*0.13 +(income -2_400_00)*0.15)
-    elif income <20_000_000:
-        return(2_400_000 *0.13 +2_600_00*0.15+(income-5_000_000)*0.15)
+    tiers = [
+        (50_000_000, 7_020_000, 0.22),
+        (20_000_000, 1_020_000, 0.20),
+        (5_000_000, 702_000, 0.18),
+        (2_400_000, 312_000, 0.15),
+        (0, 0, 0.13)
+    ]
+
+    for start, addition, rate in tiers:
+        if income > start:
+            return addition + (income - start) * rate
